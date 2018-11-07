@@ -14,6 +14,9 @@ ALTER TABLE planet_osm_ways alter column tags type jsonb
 ALTER TABLE planet_osm_polygon alter column tags type jsonb USING stable.osm_to_jsonb(tags);
 ALTER TABLE planet_osm_rels alter column tags type jsonb USING stable.osm_to_jsonb(tags);
 
+-- 15 min:
+ALTER TABLE planet_osm_point alter column tags type jsonb USING stable.osm_to_jsonb(tags,true);
+
 
 -- Opcional:
 /* deu pau, anulando 'name:' ... revisar depois quando for usar.
@@ -31,66 +34,13 @@ UPDATE planet_osm_line
 UPDATE planet_osm_rels
  SET tags = jsonb_strip_nulls_v2(tags);
 
-CREATE or replace FUNCTION stable.getcity_rels_id(
-  p_cod_ibge text  -- código IBGE do município, wikidata-id, lex-name ou path-name
-  ,p_admin_level text default '8'
-) RETURNS bigint AS $f$
- SELECT id
- FROM planet_osm_rels
- WHERE tags->>'admin_level'=p_admin_level AND CASE
-	  WHEN substr(p_cod_ibge,1,1)='Q' THEN p_cod_ibge=tags->>'wikidata'
-	  WHEN substr(p_cod_ibge,3,1) IN (':','-',';') THEN (
-	    SELECT ibge_id::text FROM brcodes_city
-	    WHERE upper(substr(p_cod_ibge,1,2))=uf AND substr(lower(p_cod_ibge),4)=lexLabel
-	  ) = tags->>'IBGE:GEOCODIGO'
-	  WHEN substr(p_cod_ibge,3,1)='/' THEN (
-	    SELECT ibge_id::text FROM brcodes_city
-	    WHERE upper(substr(p_cod_ibge,1,2))=uf AND substr(p_cod_ibge,4)=stable.lexname_to_path(lexLabel)
-	  ) = tags->>'IBGE:GEOCODIGO'
-	  WHEN length(p_cod_ibge)=7 THEN p_cod_ibge=tags->>'IBGE:GEOCODIGO'
-	  ELSE p_cod_ibge::bigint = (tags->>'IBGE:GEOCODIGO')::bigint
-  END
-$f$ LANGUAGE SQL IMMUTABLE;
 
-CREATE or replace FUNCTION stable.getcity_rels_id(
-  p_cod_ibge bigint  -- código IBGE do município
-  ,p_admin_level text default '8'
-) RETURNS bigint AS $wrap$
-   SELECT stable.getcity_rels_id($1::text,$2)
-$wrap$ LANGUAGE SQL IMMUTABLE;
-
-/*- -
- SELECT ibge_id, stable.getcity_rels_id(ibge_id) osm_id FROM brcodes_city;
-
- select stable.getcity_rels_id('4304408');
- select stable.getcity_rels_id('rS-canEla'); -- case ins.
- select stable.getcity_rels_id('RS/Canela'); -- case sens.
- select stable.getcity_rels_id('Q995318');
- select stable.getcity_rels_id('0004304408');
- select stable.getcity_rels_id('SP/SaoCarlos');
-*/
-
-CREATE or replace FUNCTION stable.getcity_polygon_geom(
-  p_cod_ibge text  -- código IBGE do município. Completo ou parcial.
-  ,p_admin_level text default '8'
-) RETURNS geometry AS $f$
- SELECT way
- FROM planet_osm_polygon
- WHERE osm_id = stable.getcity_rels_id(p_cod_ibge,$2)
-$f$ LANGUAGE SQL IMMUTABLE;
-
-CREATE or replace FUNCTION stable.getcity_line_geom(
-  p_cod_ibge text  -- código IBGE do município. Completo ou parcial.
-  ,p_admin_level text default '8'
-) RETURNS geometry AS $f$
- SELECT way
- FROM planet_osm_line
- WHERE -osm_id = stable.getcity_rels_id(p_cod_ibge,$2)
-$f$ LANGUAGE SQL IMMUTABLE;
 
 
 
 --------
+-- -- -- -- -- -- --
+-- member_of
 
 -- script para rodar em BAT:
 -- criar função que roda toda a sequência.
@@ -179,6 +129,13 @@ WHERE
 -- e casos complexos com subarea, como país Bolivia e Uruguai.
 */
 
+
+-- -- -- -- -- -- --
+-- -- -- -- -- -- --
+-- -- -- -- -- -- --
+-- is_dup
+-- Fora de uso?  falta revisão final.
+
 ALTER TABLE planet_osm_polygon add column is_dup boolean DEFAULT false;
 
 UPDATE planet_osm_polygon t
@@ -218,25 +175,76 @@ WHERE not(is_dup) AND osm_id>0 AND EXISTS (
 ); -- 940 in 3.796.335 linhas , ~10min
 
 
-------
 
 
-CREATE or replace FUNCTION stable.save_city_test_names(
-  p_root text DEFAULT '/tmp/'
-) RETURNS table(city_name text, osm_id bigint, filename text) AS $f$
-  SELECT t1.name_path, t1.id,
-   file_put_contents(p_root||replace(t1.name_path,'/','-')||'.json', jsonb_pretty((
-    SELECT
-       ST_AsGeoJSONb( (SELECT way FROM planet_osm_polygon WHERE osm_id=-r1.id), 6, 1, 'R'||r1.id::text,
-         jsonb_strip_nulls(stable.rel_properties(r1.id)
-         || COALESCE(stable.rel_dup_properties(r1.id,'r',r1.members_md5_int,r1.members),'{}'::jsonb) )
-      )
-    FROM  planet_osm_rels r1 where r1.id=t1.id
-   )) ) -- /selct /pretty /file
-  FROM (
-   SELECT *, stable.getcity_rels_id(name_path) id  from stable.city_test_names
-  ) t1, LATERAL (
-   SELECT * FROM planet_osm_rels r WHERE  r.id=t1.id
-  ) t2;
+
+-- -- -- -- -- --
+-- -- -- -- -- --
+-- -- -- -- -- --
+---- AFTER ALL JSONb UPDATES
+-- LIB based on jsonb tags
+
+CREATE or replace FUNCTION stable.getcity_rels_id(
+  p_cod_ibge text  -- código IBGE do município, wikidata-id, lex-name ou path-name
+  ,p_admin_level text default '8'
+) RETURNS bigint AS $f$
+ SELECT id
+ FROM planet_osm_rels
+ WHERE tags->>'admin_level'=p_admin_level AND CASE
+	  WHEN substr(p_cod_ibge,1,1)='Q' THEN p_cod_ibge=tags->>'wikidata'
+	  WHEN substr(p_cod_ibge,3,1) IN (':','-',';') THEN (
+	    SELECT ibge_id::text FROM brcodes_city
+	    WHERE upper(substr(p_cod_ibge,1,2))=uf AND substr(lower(p_cod_ibge),4)=lexLabel
+	  ) = tags->>'IBGE:GEOCODIGO'
+	  WHEN substr(p_cod_ibge,3,1)='/' THEN (
+	    SELECT ibge_id::text FROM brcodes_city
+	    WHERE upper(substr(p_cod_ibge,1,2))=uf AND substr(p_cod_ibge,4)=stable.lexlabel_to_path(lexLabel)
+	  ) = tags->>'IBGE:GEOCODIGO'
+	  WHEN length(p_cod_ibge)=7 THEN p_cod_ibge=tags->>'IBGE:GEOCODIGO'
+	  ELSE p_cod_ibge::bigint = (tags->>'IBGE:GEOCODIGO')::bigint
+  END
 $f$ LANGUAGE SQL IMMUTABLE;
--- select * from  stable.save_city_test_names();
+COMMENT ON FUNCTION stable.getcity_rels_id(text,text)
+
+CREATE or replace FUNCTION stable.getcity_rels_id(
+  p_cod_ibge bigint  -- código IBGE do município
+  ,p_admin_level text default '8'
+) RETURNS bigint AS $wrap$
+   SELECT stable.getcity_rels_id($1::text,$2)
+$wrap$ LANGUAGE SQL IMMUTABLE;
+
+/*- -
+ SELECT ibge_id, stable.getcity_rels_id(ibge_id) osm_id FROM brcodes_city;
+
+ select stable.getcity_rels_id('4304408');   -- IBGE ID
+ select stable.getcity_rels_id('0004304408');
+ select stable.getcity_rels_id('rS-canEla'); -- namePath, case ins.
+ select stable.getcity_rels_id('RS/Canela'); -- namePath, case sens.
+ select stable.getcity_rels_id('Q995318');  -- wikidata
+
+ select stable.getcity_rels_id('SP/SaoCarlos');  -- other name-path
+*/
+
+CREATE or replace FUNCTION stable.getcity_polygon_geom(
+  p_cod_ibge text  -- código IBGE do município. Completo ou parcial.
+  ,p_admin_level text default '8'
+) RETURNS geometry AS $f$
+ SELECT way
+ FROM planet_osm_polygon
+ WHERE -osm_id = stable.getcity_rels_id(p_cod_ibge,$2)
+$f$ LANGUAGE SQL IMMUTABLE;
+
+--SELECT osm_id, round(st_area(way,true)) as area_m2, tags->'name' as name
+-- FROM planet_osm_polygon p, (select stable.getcity_polygon_geom('SP/MonteiroLobato')) t(geom)
+-- WHERE p.way && t.geom AND st_contains(t.geom,way) and not(st_equals(way,t.geom));
+
+/*
+CREATE or replace FUNCTION stable.getcity_line_geom(
+  p_cod_ibge text  -- código IBGE do município. Completo ou parcial.
+  ,p_admin_level text default '8'
+) RETURNS geometry AS $f$
+ SELECT way
+ FROM planet_osm_line
+ WHERE -osm_id = stable.getcity_rels_id(p_cod_ibge,$2)
+$f$ LANGUAGE SQL IMMUTABLE;
+*/

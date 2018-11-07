@@ -11,6 +11,12 @@ CREATE SERVER IF NOT EXISTS files FOREIGN DATA WRAPPER file_fdw;
 
 CREATE SCHEMA IF NOT EXISTS stable; -- OSM BR Stable
 
+CREATE TABLE stable.configs (
+   lib_version text NOT NULL  -- this project version
+   , base_path text NOT NULL -- can be any onwned by "postgres" user.
+);
+INSERT INTO stable.configs(lib_version,base_path) VALUES ('1.0.0','/tmp');
+
 /*  Conferir se haverá uso posterior, senão bobagem só para inicialização:
 CREATE  TABLE stable.element_exists(
    osm_id bigint NOT NULL -- negative is relation
@@ -64,7 +70,7 @@ $f$ LANGUAGE SQL IMMUTABLE;
 
 ---- ---
 
-CREATE or replace FUNCTION stable.lexname_to_path(
+CREATE or replace FUNCTION stable.lexlabel_to_path(
   p_lexname text
 ) RETURNS text AS $f$
   SELECT string_agg(initcap(t),'')
@@ -99,12 +105,24 @@ CREATE or replace FUNCTION stable.tags_split_prefix(
   ))
 $f$ LANGUAGE SQL IMMUTABLE;
 
-CREATE or replace FUNCTION stable.osm_to_jsonb(text[]) RETURNS JSONb AS $f$
-   SELECT jsonb_object($1) - stable.osm_to_jsonb_remove()
+CREATE or replace FUNCTION stable.osm_to_jsonb(
+  p_input text[],
+  p_strip boolean DEFAULT false
+) RETURNS JSONb AS $f$
+  SELECT CASE WHEN p_strip THEN jsonb_strip_nulls_v2(x) ELSE x END
+  FROM (
+    SELECT jsonb_object($1) - stable.osm_to_jsonb_remove()
+  ) t(x)
 $f$ LANGUAGE SQL IMMUTABLE;
 
-CREATE or replace FUNCTION stable.osm_to_jsonb(hstore) RETURNS JSONb AS $f$
-   SELECT hstore_to_jsonb_loose($1) - stable.osm_to_jsonb_remove()
+CREATE or replace FUNCTION stable.osm_to_jsonb(
+  p_input hstore,
+  p_strip boolean DEFAULT false
+) RETURNS JSONb AS $f$
+  SELECT CASE WHEN p_strip THEN jsonb_strip_nulls_v2(x) ELSE x END
+  FROM (
+    SELECT hstore_to_jsonb_loose($1) - stable.osm_to_jsonb_remove()
+  ) t(x)
 $f$ LANGUAGE SQL IMMUTABLE;
 
 CREATE or replace FUNCTION stable.member_md5key(
@@ -155,16 +173,9 @@ $f$ LANGUAGE SQL IMMUTABLE;
 
 
 ---
-
-DROP TABLE IF EXISTS stable.city_test_names;
-CREATE TABLE stable.city_test_names AS
-  SELECT unnest(
-    '{PR/Curitiba,PR/MarechalCandidoRondon,SC/JaraguaSul,SP/MonteiroLobato,MG/SantaCruzMinas,SP/SaoPaulo,PA/Altamira,RJ/AngraReis}'::text[]
-  ) name_path
-;
+---------------
 
 -----
-
 CREATE or replace FUNCTION stable.rel_dup_properties(
   p_osm_id bigint,
   p_osm_type char,
@@ -209,8 +220,15 @@ CREATE or replace FUNCTION stable.rel_dup_properties(
    ) t1
   ) t2
 $f$ LANGUAGE SQL IMMUTABLE;
+COMMENT ON FUNCTION stable.rel_dup_properties (bigint, character, bigint, jsonb, text) IS $cmt$
+OSM relations with duplicated geometries.  Check all equivalent-relations of @param-p_osm_id.
+@returns a members description for duplicates.
+@doc-dependences-table(planet_osm_rels,planet_osm_ways)
+@doc-dependences-func(stable.rel_properties,stable.way_properties,jsonb_object_1key)
+$cmt$;
+
 /* exemplo de uso:
-SELECT file_put_contents('/tmp/lixo.json', (
+SELECT file_put_contents('lixo.json', (
   SELECT jsonb_pretty(stable.rel_properties(id)
        || stable.rel_dup_properties(id,'r',members_md5_int,members) )
   FROM  planet_osm_rels where id=242467
@@ -218,12 +236,12 @@ SELECT file_put_contents('/tmp/lixo.json', (
 
 -- Exemplo mais complexo: grava propriedades de todas as cidades:
 SELECT t1.name_path, t1.id,
- file_put_contents('/tmp/final-'||t1.id||'.json', (
+ file_put_contents('final-'||t1.id||'.json', (
   SELECT
     trim((
        jsonb_strip_nulls(stable.rel_properties(r1.id)
        || COALESCE(stable.rel_dup_properties(r1.id,'r',r1.members_md5_int,r1.members),'{}'::jsonb) )
-    )::text)
+    )::text, 'SP')
   FROM  planet_osm_rels r1 where r1.id=t1.id
  ) ) -- /selct /file
 FROM (
@@ -231,8 +249,6 @@ FROM (
 ) t1, LATERAL (
  SELECT * FROM planet_osm_rels r WHERE  r.id=t1.id
 ) t2;
-
-
 */
 
 CREATE or replace FUNCTION stable.rel_properties(
@@ -269,12 +285,19 @@ CREATE or replace FUNCTION stable.element_properties(
     END
 $wrap$ LANGUAGE SQL IMMUTABLE;
 
+CREATE or replace FUNCTION stable.tags_to_csv(
+  p_input jsonb,
+  p_sep text DEFAULT '; '
+) RETURNS text AS $f$
+ SELECT array_to_string(array_agg(key||'='||value),p_sep)
+ FROM jsonb_each_text($1)
+$f$ LANGUAGE SQL IMMUTABLE;
+
 /**
  * Enhances ST_AsGeoJSON() PostGIS function.
  * Use ST_AsGeoJSONb( geom, 6, 1, osm_id::text, stable.element_properties(osm_id) - 'name:' ).
  */
 CREATE or replace FUNCTION ST_AsGeoJSONb( -- ST_AsGeoJSON_complete
-  st_asgeojsonb(geometry, integer, integer, bigint, jsonb
   p_geom geometry,
   p_decimals int default 6,
   p_options int default 1,  -- 1=better (implicit WGS84) tham 5 (explicit)
@@ -299,6 +322,24 @@ CREATE or replace FUNCTION ST_AsGeoJSONb( -- ST_AsGeoJSON_complete
          || CASE WHEN p_title IS NULL THEN '{}'::jsonb ELSE jsonb_build_object('title',p_title) END
 $f$ LANGUAGE SQL IMMUTABLE;
 
+
+CREATE or replace FUNCTION stable.std_GeoJSONb(
+  p_id bigint,
+  p_members_md5_int bigint,
+  p_members jsonb
+) RETURNS JSONb AS $f$
+  SELECT ST_AsGeoJSONb(
+      (SELECT way FROM planet_osm_polygon WHERE osm_id=-p_id),
+      6,
+      1,
+      'R'||p_id::text,
+      jsonb_strip_nulls(stable.rel_properties(p_id) || COALESCE(stable.rel_dup_properties(
+        p_id, 'r', p_members_md5_int, p_members), '{}'::jsonb
+      ) )
+    )
+$f$ LANGUAGE SQL IMMUTABLE;
+
+
 /*
 -- readfile, see http://shuber.io/reading-from-the-filesystem-with-postgres/
 -- key can be pg_read_file() but no permission
@@ -315,6 +356,7 @@ AS $$
 $$ LANGUAGE plpythonu;
 */
 
+
 CREATE or replace FUNCTION file_get_contents(p_file text) RETURNS text AS $$
    with open(args[0],"r") as content_file:
        content = content_file.read()
@@ -322,17 +364,27 @@ CREATE or replace FUNCTION file_get_contents(p_file text) RETURNS text AS $$
 $$ LANGUAGE PLpythonU;
 
 CREATE or replace FUNCTION file_put_contents(
-  p_file text,
-  p_content text,
+  p_file text,                  -- arg0
+  p_content text,               -- arg1
+  p_folder text DEFAULT '',     -- arg2
+  p_basepath text DEFAULT '/tmp', -- arg4 3
   p_msg text DEFAULT ' (file "%s" saved!) '
 ) RETURNS text AS $$
-  o=open(args[0],"w")
+  import os
+  if args[2].find('/')>0 :
+    filepath = args[3] + args[2]
+  else:
+    filepath = args[3] +'/'+ args[2]
+  if not os.path.exists(filepath):
+    os.mkdir(filepath)
+  file = filepath+'/'+args[0]
+  o=open(file,"w")
   o.write(args[1])
   o.close()
-  if args[2] and args[2].find('%s')>0 :
-    return (args[2] % args[0])
+  if args[4] and args[4].find('%s')>0 :
+    return (args[4] % file)
   else:
-    return args[2]
+    return args[4]
 $$ LANGUAGE PLpythonU;
 
 CREATE or replace FUNCTION ST_GeomFromGeoJSON_sanitized( p_j  JSONb, p_srid int DEFAULT 4326) RETURNS geometry AS $f$
@@ -359,6 +411,7 @@ CREATE or replace FUNCTION ST_GeomFromGeoJSON_sanitized( p_j  JSONb, p_srid int 
 $f$ LANGUAGE SQL IMMUTABLE;
 
 CREATE OR REPLACE FUNCTION read_geojson(
+  -- file_get_geojson
   p_path text,
   p_ext text DEFAULT '.geojson',
   p_basepath text DEFAULT '/opt/gits/city-codes/data/dump_osm/'::text,
@@ -408,3 +461,29 @@ CREATE or replace FUNCTION jsonb_strip_nulls_v2(
    SELECT CASE WHEN x='{}'::JSONb THEN NULL ELSE x END
    FROM (SELECT jsonb_strip_nulls($1)) t(x)
 $f$ LANGUAGE SQL IMMUTABLE;
+
+
+-- -- -- -- -- -- -- -- -- -- -- --
+-- -- report and mkdump auxiliar lib
+
+
+
+/**
+ * COPY TO CSV HEADER.
+ */
+CREATE or replace FUNCTION copy_csv(
+  p_filename  text,
+  p_query     text,
+  p_useheader boolean = true,
+  p_root      text    = '/tmp/stable/'
+) RETURNS boolean AS $f$
+BEGIN
+  EXECUTE format(
+    'COPY (%s) TO %L CSV %s'
+    ,p_query
+    ,p_root||p_filename
+    ,CASE WHEN p_useheader THEN 'HEADER' ELSE '' END
+  );
+  RETURN true;
+END;
+$f$ LANGUAGE plpgsql;

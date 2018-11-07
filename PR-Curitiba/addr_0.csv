@@ -1,0 +1,186 @@
+geohash,osm_id,postcode,street,housenumber,name,other_tags
+0mg1mx,3378463301,271,Rua José Júlio Tortato,271,Chácara Krzak,addr:suburb=Campo de Santana; addr:postcode=81945-030
+0mjpjq,4714951102,40,Rua Ewerton Leinig Saporski,40,,entrance=yes; addr:suburb=Campo de Santana; addr:postcode=85583-004
+0mjqg2,4714951100,813,Rua Palmyra Crivellaro Bertolde,813,,entrance=yes; addr:suburb=Campo de Santana; addr:postcode=87583-002
+0mjr2p,4714951099,170,Rua Fanny Bertholdi,170,,entrance=yes; addr:suburb=Campo de Santana; addr:postcode=87583-003
+0mq3c3,4714948463,281,Rua Humberto Bertoldi,281,,addr:suburb=Campo de Santana; addr:postcode=87499-002
+0mq66g,4714948462,160,Rua Pia Lazzari Bertoldi,160,,entrance=yes; addr:suburb=Campo de Santana; addr:postcode=87483-001
+0qnrf7,3989121378,1600,Rua Ângelo Gai,1600,Chácara Baldan,phone=+55 41 3082 7416; amenity=community_centre; website=http://www.chacarabaldan.com.br/; addr:suburb=Umbará; addr:postcode=81940-340
+0t2827,3748372878,92,Rua Albor Pimpão de Almeida,92,Cicles JD,shop=bicycle; phone=+55 (41) 3155-6122; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0t2d6f,4711355672,550,Rua Odir Gomes da Rocha,550,,entrance=yes; addr:suburb=Tatuquara
+0t2mq5,3689717845,966,Rua Odir Gomes da Rocha,966,Caixa Agência Tatuquara,brand=Caixa; amenity=bank; operator=Caixa Econômica Federal
+0t38jn,3748353407,858,Rua Enette Dubard,858,Clínica das Bikes,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0t6h0d,3748368940,1300,Rua Adriana Ceres Zago Bueno,1300,LF Bike,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0t75q5,3748382975,837,Rua Ernersto Germano Francisco Hanemmann,837,Cicles Ribeiro,shop=bicycle; phone=+55 (41) 3396-2446; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0td35v,4085282815,99,Rua Evilázio Augusto Bley,99,,barrier=gate
+0v2kgj,3096049432,41,Rua Catarina Odreski,41,Zeus Tecnologia,phone=+55 41 3347-7000; office=it; website=http://zeustecnologia.com.br; wheelchair=yes; addr:suburb=Cidade Industrial; description=Empresa de Suporte Técnico em Informática.; addr:postcode=81460-275
+0venxh,3648948794,2470,Rua Manoel Valdomiro de Macedo,2470,Caixa Cidade Industrial,brand=Caixa; amenity=bank; operator=Caixa Econômica Federal
+0vubx9,4494363068,2601,Rua Pedro Gusso,2601,Universidade Tecnológica Federal do Paraná,phone=+55 41 3268 1749; amenity=university; phone_1=+55 41 3247 0966; website=http://www.utfpr.edu.br/curitiba; operator=Ministério da Educação; addr:suburb=Cidade Industrial de Curitiba; addr:postcode=81310900
+0vuunw,4167362658,341,Rua Brazílio de Araújo,341,Plaza Madrid Condomínio,barrier=gate
+0vvm4d,4167362654,1502,Rua José Zaleski,1502,Condomínio Vila Tenerife,barrier=gate
+0vvnnd,4167362640,333,Rua Agostinho Brusamolin,333,Condomínio Barcelona Neoville,barrier=gate
+0vvus6,4167362673,1701,Rua Pedro Gusso,1701,Residencial Santo André,barrier=gate
+0vxfk2,4169547675,100,Rua Leonardo Javorski,100,Conjunto Residencial Mamoré,barrier=gate
+0vy6f6,4169480119,661,Rua Senador Accioly Filho,661,Residencial Bella Vista,barrier=gate
+0vy6gv,4169480113,622,Rua Senador Accioly Filho,622,Residencial Aete,barrier=gate
+0vy73w,4169480124,585,Rua Senador Accioly Filho,585,Residencial Villa Lobos,barrier=gate
+0vybhn,4167409031,2214,Rua Professor Algacyr Munhoz Mader,2214,Condomínio Residencial Marechal Rondon,barrier=gate
+0vyppc,4953267067,1330,Rua Pedro Gusso,1330,Pet Shop Mimos de Bicho,"shop=pet; email=petmimosdebicho@gmail.com; phone=+55 41 33473236; operator=Pet Shop Mimos de Bicho; wheelchair=limited; description=Menor preço da região em rações, acessórios e medicamentos para cães, gatos e aves. Somos especialistas em pragas urbanas (formigas, baratas, aranhas, roedores e demais).; addr:postcode=81050200; opening_hours=Mo-Fr 08:30-19:00; Sa 08:30-15:00"
+0vyv93,4167409044,487,Rua General Potiguara,487,Condomínio Mauá II,barrier=gate
+0vzhgd,3028408609,1081,Rua Doutor Luíz Losso Filho,1081,Naturalis,phone=+55 41 3248-5329; amenity=fast_food; cuisine=burger; smoking=separated; addr:suburb=Novo Mundo; addr:postcode=81050-430
+0vznv6,3028369985,691,Rua Theóphilo Mansur,691,Auto Elétrica Batista,shop=car_repair; phone=+55 41 9693-8680; addr:suburb=Capão Raso; addr:postcode=81050-380
+0vzsed,4924420550,774,Rua Doutor Luíz Losso Filho,774,MajoPani,shop=bakery; addr:suburb=Novo Mundo
+0vzss3,4924420866,750,Rua Doutor Luíz Losso Filho,750,Mundo Fitness,"leisure=fitness_centre; addr:suburb=Novo Mundo; opening_hours=Mo-Fr 06:00-22:00, Fr 10:00-14:00, Su Closed"
+0w776k,4087945763,291,Rua Júlia Huga Maria Rebello,291,,barrier=gate
+0wbh32,4680343452,476,Rua Colomba Merlin,476,Parque Lago Azul,access=permissive; entrance=main; addr:suburb=Ganchinho; addr:postcode=81935-560
+0wd322,4087342985,1882,Rua Deputado Pinheiro Júnior,1882,,barrier=gate
+0wd5qc,4087361362,281,Rua Humberto Negrello,281,,barrier=gate
+0wtb1n,3748155899,1053,Rua Celeste Tortato Gabardo,1053,Bike Center Mania,shop=bicycle; phone=+55 (41) 3348-0966; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0wu1bc,4367720468,56,Rua Victalino José Bolicenha,56,Condomínio América,barrier=gate
+0wu6xs,3748300486,1795,Rua Nova Esperança,1795,Cicles D Silva,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0wwdrg,3748169831,233,Rua Professora Amália Elza Gasparotto Doná,233,Cicles Ninja,shop=bicycle; phone=+55 (41) 3024-5447; website=http://www.ciclesninja.com; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0wy2dk,3748189647,2215,Rua Celeste Tortato Gabardo,2215,Cicles Malinovski,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0wz26t,3748279270,403,Rua Tijucas do Sul,403,,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0wz53b,3748135988,259,Rua São José dos Pinhais,259,Cicles Oliveira,shop=bicycle; phone=+55 (41) 3349-3512; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0wzevs,3689250804,1171,Rua dos Pioneiros,1171,Caixa Econômica Federal - Ag Sítio Cercado,amenity=bank
+0wzwr3,3748202534,3956,Rua Izaac Ferreira Da Cruz,3956,Bike Mania,shop=bicycle; phone=+55 (41) 3286-3972; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0xhrcm,3654033553,615,Rua Jundiaí do Sul,615,Caixa Econômica Federal - Ag Osternack,amenity=bank
+0xjfcz,3748143760,2833,Rua Jussara,2833,Cicles Silva,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0xk36e,3748321411,2821,Rua Eduardo Pinto da Rocha,2821,Bicicletaria Rei das Bikes,shop=bicycle; phone=+55 (41) 9892-3825; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0xnrts,4978382221,3430,Rua David Towns,3430,Caribe Açaí e Sorvetes,phone=35646023; amenity=pub; cuisine=crepe;sandwich;ice_cream; name:pt=Caribe Açaí e Sorvetes; opening_hours=Mo-Su 12:00-19:00
+0xntn1,3748208698,2578,Rua Ourizona,2578,Classic Bike,shop=bicycle; phone=+55 (41) 3298-6702; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0xpg22,3846590753,2350,Rua David Towns,2350,"Coqueiros, Centro Municipal de Educação Infantil","phone=(41)3378-6575; amenity=childcare; operator=Coqueiros, Centro Municipal de Educação Infantil; addr:suburb=SÍTIO CERCADO; addr:postcode=81910-440"
+0xr9nj,3794510548,665,Rua Jorge Simão,665,Pizzaria Simão,amenity=restaurant; cuisine=pizza; addr:postcode=81850-240; opening_hours=Tu-Su 18:00-24:00
+0xxdvt,3933278376,6275,Rua Francisco Derosso,6275,Residencial Campo Belo,barrier=gate
+0xxg7c,4368219846,204,Rua Jaguapitã,204,Residencial Campo Belo II,barrier=gate
+0xxgq8,4368219848,225,Rua Jaguapitã,225,Residencial Campo Belo III,barrier=gate
+0y1mfp,3809275085,160,Rua Leonardo Pianowski,160,,survey:date=2015-10-29
+0y1mv3,3809275117,349,Rua Doutora Alzira Pirath Correa,349,,survey:date=2015-10-29
+0y1q09,3809275082,153,Rua Leonardo Pianowski,153,,survey:date=2015-10-29
+0y1rg8,3809275113,19575,Linha Verde,19575,,survey:date=2015-10-29
+0y1rvu,3809275114,19775,Linha Verde,19775,,survey:date=2015-10-29
+0y1w1k,3809275116,221,Rua Doutora Alzira Pirath Correa,221,,survey:date=2015-10-29
+0y23n4,4364681642,444,Alameda Nossa Senhora do Sagrado Coração,444,Condomínio Reserva Graciosa,barrier=gate
+0y249p,4364666435,255,Rua Dilermando Pereira de Almeida,255,Residencial La Salle,barrier=gate
+0y2svy,3680674262,942,Rua Emanuel Voluz,942,Cicles Langner,shop=bicycle; phone=+55 (41) 3349-3319; website=http://www.cicleslangner.com; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0y3757,4365111092,101,Rua Victor Modesto de Oliveira,101,,barrier=gate
+0y37hp,4365111098,125,Rua Victor Modesto de Oliveira,125,,barrier=gate
+0y37zn,4365111105,233,Rua Victor Modesto de Oliveira,233,,barrier=gate
+0y387y,3809275072,19740,Linha Verde,19740,Campneus,shop=tyres
+0y3bfz,3809275112,19481,Linha Verde,19481,,survey:date=2015-10-29
+0y3cjg,3809275111,19420,Linha Verde,19420,,survey:date=2015-10-29
+0y3cr9,3809275110,19361,Linha Verde,19361,,survey:date=2015-10-29
+0y3rvj,4365123790,246,Rua Antônio Mendes de Siqueira,246,,barrier=gate
+0y4xug,3663530760,186,Rua Rubem Berta,186,Bike Langner,shop=bicycle; phone=(41) 3247-0168; website=http://www.cicleslangner.com; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0y61ey,3809275109,19305,Linha Verde,19305,,survey:date=2015-10-29
+0y66qn,3809275108,19069,Linha Verde,19069,,survey:date=2015-10-29
+0y6b0y,3644411681,2351,Avenida Winston Churchill,2351,Caixa Econômica Federal - Ag Pinheirinho,amenity=bank
+0y6fe1,3809275106,18684,Linha Verde,18684,,survey:date=2015-10-29
+0y6g34,3809275107,18805,Linha Verde,18805,,survey:date=2015-10-29
+0y6wvz,4342491406,546,Rua Reinaldo Stocco,546,,barrier=gate
+0y7k89,3809275105,18449,Linha Verde,18449,,survey:date=2015-10-29
+0yb13d,3846584957,420,Rua Cafeara,420,Centro Municipal de Educação Infantil Xapinhal II,amenity=childcare; addr:suburb=Sítio Cercado; contact:phone=+55 41 3349-0184
+0ybe5x,3846582110,90,Rua Professora Delminda Santos Fernandes,90,CMEI Parigot de Souza,phone=+55 41 3378-7673; amenity=kindergarten; operator=PMC - SME; addr:suburb=Sítio Cercado; addr:postcode=81910-200
+0yck8p,3846577712,1393,Rua Doutor Pedro Zavaski,1393,Centro Municipal de Educação Infantil Moradias Gramados,phone=+55 41 3346-6344; amenity=kindergarten; addr:suburb=Pinheirinho; addr:postcode=81825-000
+0ycmt8,3846577119,515,Rua Abrão Jak Duck,515,Centro Municipal de Educação Infantil Edmundo Lemanski,phone=+55 41 3286-1843; amenity=kindergarten; addr:suburb=Xaxim; addr:postcode=81830-310
+0ye2bp,4361505846,300,Rua Cid Marcondes de Albuquerque,300,,barrier=gate
+0yeyf4,4138823979,999,Rua Omar Raymundo Picheth,999,Scooby Informática,shop=computer; addr:suburb=Xaxim; addr:postcode=81810150; opening_hours=08:00 - 20:30
+0yfts2,3846575627,527,Rua Tenente Antônio Pupo,527,Centro Municipal de Educação Infantil Itamarati,phone=+55 41 3378-7038; amenity=kindergarten; addr:suburb=Xaxim; addr:postcode=81830-230
+0yhxtj,3644411680,1190,Avenida Winston Churchill,1190,Caixa Econômica Federal - Ag Capão Raso,atm=yes; phone=+55 41 3341 7050; amenity=bank; operator=Caixa; drive_through=no; opening_hours=Seg-Sex 10:00 - 16:00
+0yhz3g,4494363063,90,Rua Professor Waldir de Jesus,90,Colégio Social Madre Clélia,phone=+55 41 3111 1500; amenity=school; website=http://madreclelia.redesagradosul.com.br/; operator=Rede Sagrado Sul; addr:suburb=Capão Raso; addr:postcode=81130-110
+0yj4zh,4432944510,237,Rua Francisco de Camargo Pinto,237,Mercado Tokarski,shop=supermarket; phone=+55 41 3246-2384; website=http://www.mercadotok.com.br; addr:suburb=Capão Raso; addr:postcode=81130290; opening_hours=Seg-Sab: 07h30-20h00
+0yj6my,4494363064,730,Rua Frei Teófilo,730,Escola Municipal Umuarama,phone=+55 41 3246 8634; amenity=school; website=http://www.educacao.curitiba.pr.gov.br/unidade/umuarama-escola-municipal/18148; operator=Secretaria de Educação da Prefeitura de Curitiba; addr:suburb=Capão Raso; addr:postcode=81130070
+0yjeg5,4363348194,150,Rua José Zaleski,150,Colégio Estadual Emílio de Menezes,phone=+55 41 3248 5115; amenity=school; website=http://www.ctaemiliomenezes.seed.pr.gov.br/; operator=Secretaria da Educação do Estado do Paraná; addr:suburb=Capão Raso; addr:postcode=81130060
+0ykexj,4363348202,345,Rua Eloi Orestes Zeglin,345,Residencial Bouganville II,barrier=gate
+0ykj0m,4157499519,554,Rua Lothário Boutin,554,Muffato Max Linha Verde,"shop=supermarket; website=http://www.muffatomax.com.br; opening_hours=Mo-Sa 07:30-22:00; Su,Ph 08:00-20:00"
+0ykn5m,3809275103,17906,Linha Verde,17906,Spazio Chardonnay,barrier=gate; survey:date=2015-10-29
+0ykn8y,3809275102,17903,Linha Verde,17903,,survey:date=2015-10-29
+0ykphu,3809275101,17817,Linha Verde,17817,,survey:date=2015-10-29
+0ykqgq,3809275100,17762,Linha Verde,17762,,survey:date=2015-10-29
+0ykr8c,3809275099,17721,Linha Verde,17721,,survey:date=2015-10-29
+0ykrrg,3809275098,17632,Linha Verde,17632,,survey:date=2015-10-29
+0ykruy,3809275096,17597,Linha Verde,17597,,survey:date=2015-10-29
+0ykxu3,3809275094,17518,Linha Verde,17518,,survey:date=2015-10-29
+0yp5ts,4924433765,817,Rua Deputado Waldemiro Pedroso,817,Acapulco,"shop=pastry; opening_hours=Mo-Fr 07:00-18:00 , Su 07:00-11:00."
+0yq12u,5221831321,205,Rua Doutor Manoel Linhares de Lacerda,205,Igreja Evangélica do Nazareno,"email=nazarenocapaoraso@gmail.com; phone=4130407123; amenity=place_of_worship; name:en=Church of Nazarene; website=http://www.nazarwnocapaoraso.com; addr:postcode=81110-100; opening_hours=Su, Th 19:00-21:00"
+0yq86q,613552507,32,Largo Albino Vico,32,Santuário São José do Capão Raso,amenity=place_of_worship; website=http://santuariosaojosecapaoraso.com.br/; religion=christian; addr:suburb=Capão Raso; denomination=catholic; addr:postcode=81130005
+0yr02t,4924439547,5489,"Rua Antônio Gasparin,Via Rápida do Portão",5489,Hyundai CAOA,"shop=car; addr:suburb=Novo Mundo; opening_hours=Mo-Fr 08:00-19:00, Sa 09:00 - 17:00"
+0ys2jd,3809275097,17609,Linha Verde,17609,,survey:date=2015-10-29
+0ys82s,3809275095,17547,Linha Verde,17547,,survey:date=2015-10-29
+0ys8ew,3809275093,17471,Linha Verde,17471,,survey:date=2015-10-29
+0ys8pk,3809275092,17448,Linha Verde,17448,,survey:date=2015-10-29
+0ysb6z,3809275090,17310,Linha Verde,17310,,survey:date=2015-10-29
+0ysbyq,3809275089,17240,Linha Verde,17240,,survey:date=2015-10-29
+0ysc2f,3809275091,17315,Linha Verde,17315,,survey:date=2015-10-29
+0ysz2f,3888028626,503,Rua Dante Honório,503,CMEI JARDIM ESMERALDA,phone=(41)3275-9087; amenity=childcare; operator=CMEI JARDIM ESMERALDA; addr:suburb=xaxim; addr:postcode=81830-095; opening_hours=07:00-18:30
+0yt3bv,3809275087,17000,Linha Verde,17000,,survey:date=2015-10-29
+0yt462,3809275088,17093,Linha Verde,17093,,survey:date=2015-10-29
+0ytd8f,3765355265,16758,Linha Verde,16758,AutoGlass,shop=car_parts; operator=AutoGlass; addr:state=PR; addr:country=BR; addr:postcode=81690300; opening_hours=Mo-Fr 08:00-18:00; Sa 08:00-12:00; addr:housename=AutoGlass
+0yte94,3809275086,16729,Linha Verde,16729,,survey:date=2015-10-29
+0yuh6v,3846572313,329,Rua Constantino José de Almeida,329,Creche Municipal Demawe,amenity=kindergarten; addr:suburb=Xaxim; opening_hours=Mo-Fr 07:00-18:30
+0yv9t7,4361434658,715,Rua Anibal Requião,715,Residencial Jardim Esmeralda,barrier=gate
+0yvdgy,985479291,878,Rua Anibal Requião,878,Boulevard Club Condominium,barrier=gate
+0yw9u7,4362749920,540,Rua José Gomes de Abreu,540,Condomínio Villa Rica,barrier=gate
+0ywv1h,3617350241,6759,Avenida Brasília,6759,Caixa Econômica Federal - Ag Av Brasília,amenity=bank
+0ywv2n,3617350242,6759,Avenida Brasília,6759,,amenity=post_office
+0ywx7s,4814569721,117,Rua Francisco Derosso,117,Big baile,name:pt=Big baile; tourism=attraction
+0ywxxk,3809275084,15915,Linha Verde,15915,,survey:date=2015-10-29
+0yx1cy,4345655488,80,Rua das Corruíras,80,Residencial San Diego,barrier=gate
+0yxfgm,4924466392,540,Rua Santa Maria,540,Escola Municipal Madre Maria dos Anjos,phone=+55 41 32461711; addr:suburb=Novo Mundo; addr:postcode=81030410
+0yxu9d,4924466394,563,Rua Professor Antônio Martins Franco,563,Seminário dos Cônegos Regulares Lateranenses,addr:suburb=Novo Mundo; addr:postcode=81030400
+0yxue9,4924466393,1575,Rua Padre Manuel da Nóbrega,1575,Igreja São Miguel Arcanjo,"phone=+55 41 3246-1124; amenity=place_of_worship; religion=christian; addr:suburb=Novo Mundo; description=Horário de missas
+Segunda-feira: 15h
+Terça-feira: 19h
+Quarta-feira: 19h
+Sexta-feira*: 19h (*primeira do mês - 7:30h)
+Sábados: 19h
+Domingos: 7:30h, 10:30h e 19h; denomination=catholic; addr:postcode=81030330; service_times=Secretaria: terças a sábados das 8h ao 12h"
+0yy2j1,5473363527,57,Rua Angelo Scaramusa,57,Oficina374 Lataria e Pintura,shop=car_repair; addr:suburb=Xaxim; addr:postcode=81810-440; service:vehicle:car_repair=yes
+0yybx9,3809275083,15625,Linha Verde,15625,,survey:date=2015-10-29
+0yysq8,4357432889,323,Rua Antônio Rebellato,323,,barrier=gate
+0yz58j,3770331574,525,Rua Octacyr Reinaldo Mion,525,,barrier=gate
+0yzhks,3770331588,104,Rua Vitor Stec,104,,barrier=gate
+0z0syz,4538576695,129 13/3,Rua Izabel Gomes Posselt,129 13/3,EMMANUEL,tourism=motel
+0z0yeh,3846600419,255,Rua Roberto B. de Almeida,255,Centro Municipal de Educação Infantil Conjunto Araucária,phone=+55 41 3378-4554; amenity=kindergarten; addr:suburb=Alto Boqueirão
+0z2ffd,3846606857,153,Rua Francisco Ceccon,153,Centro Municipal de Educação Infantil Tiradentes,phone=(41)3379-7504; amenity=childcare; addr:suburb=Alto Boqueirão; addr:postcode=81770120
+0z3rf7,4355519618,2971,Rua Cascavel,2971,Condomínio Reserva do Bosque,barrier=gate
+0z44z5,3741474127,370,Rua Abrão Winter,370,Associação Santa Rita de Cássia,phone=+55 (41) 3378-8402; amenity=social_facility; website=http://www.associacaosantarita.com.br/; addr:country=BR; addr:postcode=81830-280; social_facility=assisted_living; social_facility:for=senior
+0z4mjt,3652655115,3488,Rua Francisco Derosso,3488,Caixa Econômica Federal - Ag Francisco Derosso,amenity=bank
+0z588t,3613068208,4181,Rua Waldemar Loureiro Campos,4181,Gênio Ferramentas,shop=car_parts
+0z5bxz,3748433361,2401,Rua Francisco Derosso,2401,Cicles Jahn,shop=bicycle; phone=+55 (41) 3275-5828; website=http://www.ciclesjahn.com.br; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0z5zgk,4340941800,2,Rua Hyron Homero Damasceno Cassou,2,Paysage Hamm Wald Condomínio,barrier=gate
+0z5zu5,4340941797,1,Rua Hyron Homero Damasceno Cassou,1,,barrier=gate
+0z6pvp,4355494853,5081,Rua Paulo Setúbal,5081,Condomínio Barcelona,barrier=gate
+0z6pyu,4355494858,5059,Rua Paulo Setúbal,5059,Condomínio Sierra Madre,barrier=gate
+0z6xjd,4353778919,4753,Rua Paulo Setúbal,4753,Residencial Ravena II,barrier=gate
+0z7n1z,4336844575,4495,Rua Paulo Setúbal,4495,Residencial Ravena,barrier=gate
+0z7n2h,4336844578,4553,Rua Paulo Setúbal,4553,Residencial Parque das Flores,barrier=gate
+0z8hg1,3846619147,330,Rua Itaúna do Sul,330,Centro Municipal de Educação Infantil Escritor Elias José,phone=+55 41 3286-6517; amenity=kindergarten; addr:suburb=Alto Boqueirão; addr:postcode=81770-440
+0z9cxh,5049979423,2062,Rua Maestro Carlos Frank,2062,academia new fire gym,email=academiafiregym@hotmail.com; phone=32860080; leisure=fitness_centre; name:en=new fire gym; website=http://academiafiregym.com.br; addr:postcode=81750-400; opening_hours=Mo-Fr 06:00-23:00; Sa 08:00-12:00; internet_access=wlan
+0zd034,4355494844,5195,Rua Paulo Setúbal,5195,Condomínio Victória,barrier=gate
+0zd060,4355494842,5165,Rua Paulo Setúbal,5165,Condomínio Victória,barrier=gate
+0zd37r,4355494865,2455,Rua Pastor Carlos Frank,2455,Condomínio Residencial Vila Bela,barrier=gate
+0zdcpy,4353778904,732,Rua Arthur Manoel Iwersen,732,Condomínio Residencial Verde Vale,barrier=gate
+0zdwh3,5566634721,750,Zonardi Ribas,750,CPS - Cursos Profissionais de Segurança,phone=39012233; amenity=school; addr:postcode=81750380
+0zdwyz,5566640722,750,Rua Zonardy Ribas,750,CPS,phone=39012233; amenity=school; addr:postcode=81750-380
+0ze2ds,4336844582,550,Rua Arthur Manoel Iwersen,550,Residencial Bologna,barrier=gate
+0zf41r,4355497691,326,Rua Pastor Antônio Polito,326,,barrier=gate
+0zhy2h,4009691189,459,Rua Acyr Boza,459,Condomínio Villa Bella,barrier=gate
+0zjq8k,4340929686,2773,Rua Clara Tedesco,2773,,entrance=yes
+0zjrct,4335703864,270,Rua Cascavel,270,,barrier=gate
+0zjrfy,4335703865,269,Rua Cascavel,269,,barrier=gate
+0zkdb8,4335717861,2668,Rua Waldemar Loureiro Campos,2668,Conjunto Ouro Preto,barrier=gate
+0zm06h,4335706238,420,Rua Cascavel,420,,barrier=gate
+0zm0hz,4335703870,370,Rua Cascavel,370,,barrier=gate
+0zm0kk,4335703871,411,Rua Cascavel,411,,barrier=gate
+0zm0nz,4335703869,365,Rua Cascavel,365,,barrier=gate
+0zm0p1,4335703868,320,Rua Cascavel,320,,barrier=gate
+0zm20k,4335703867,317,Rua Cascavel,317,,barrier=gate
+0zm216,4335703866,293,Rua Cascavel,293,,barrier=gate
+0zp7ps,4958616822,1274,Rua Conde de São João das Duas Barras,1274,COPE - Centro de Operações Policiais Especiais,amenity=police; opening_hours=24/7
+0zpgrm,4958617421,1092 / B,Rua Professor José Nogueira dos Santos,1092 / B,Base QRX,amenity=police
+0zr9n7,3146255189,1878,Rua Professor João Soares Barcelos,1878,Cicles Barcelos,shop=bicycle; phone=+55 (41) 3276-0227; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:second_hand=yes
+0zsguj,3689247072,9077,Avenida Marechal Floriano Peixoto,9077,Caixa Econômica Federal - Ag Praça do Carmo,amenity=bank
+0zw28q,3815546025,1299,Rua Salvador Ferrante,1299,Sport Bike,shop=bicycle; phone=+55 (41) 3086-1714; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+0zwuf2,4667040094,2470,Rua das Carmelitas,2470,Bicho Arteiro,shop=curtain
+0zzk3v,4335346917,1690,Residencial Simão Brante,1690,Residencial Simão Brante,barrier=gate

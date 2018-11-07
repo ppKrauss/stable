@@ -1,0 +1,15 @@
+geohash,osm_id,postcode,street,housenumber,name,other_tags
+2bjv7m,4333656837,251,Rua José Fernandes Alves,251,,barrier=gate
+2bjvtb,4333656842,201,Rua José Fernandes Alves,201,,barrier=gate
+2bjwzb,4333653165,8340,Avenida Comendador Franco,8340,,barrier=gate
+2bn3n5,3748403170,40,Rua José Hauer,40,Cicles Lima,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+2bn5e3,4333669750,6800,Avenida Senador Salgado Filho,6800,,barrier=gate
+2bnr59,4330796804,465,Rua Velcy Bolivar Grandó,465,,barrier=gate
+2bnrjs,4330796807,425,Rua Velcy Bolivar Grandó,425,,barrier=gate
+2bnrpz,4330796809,395,Rua Velcy Bolivar Grandó,395,,barrier=gate
+2bnwdk,1392938837,359,Rua Adão Lauro Vargas,359,,barrier=gate
+2bp71y,850017742,7329,Avenida Comendador Franco,7329,Alvorada Auto Peças,shop=car_repair; phone=+55 41 3154 7120; website=http://autopecasalvorada.com.br; addr:suburb=Uberaba; addr:postcode=81560-000; opening_hours=Mo-Fr 8:00-18:00; Sa 8:30-12:30
+2bpptn,5283053225,553,Rua Aviador Armin Buhrer,553,Capela Nossa Senhora Rainha,amenity=place_of_worship; religion=christian; addr:suburb=Uberaba; denomination=catholic; addr:postcode=81560-540
+2bppvd,5283036629,567,Rua Aviador Armin Buhrer,567,Igreja Universal Uberaba,amenity=place_of_worship; religion=christian; addr:suburb=Uberaba; denomination=evangelical; addr:postcode=81560-540
+2bpr9z,5283031887,335,Rua Sargento Luiz G Martins Ribas,335,70ª Igreja do Evangelho Quadrangular,amenity=place_of_worship; religion=christian; addr:suburb=Uberaba; denomination=evangelical; addr:postcode=81560-530
+2bruj6,3846613617,1070,Rua Olindo Caetani,1070,Centro Municipal de Educação Infantil Doutor Francisco Cunha Pereira Filho,phone=+55 41 3575-0308; amenity=kindergarten; addr:suburb=Uberaba; addr:postcode=81590-510

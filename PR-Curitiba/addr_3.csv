@@ -1,0 +1,69 @@
+geohash,osm_id,postcode,street,housenumber,name,other_tags
+3000j6,4325534163,6700,Avenida Comendador Franco,6700,,barrier=gate
+3000v5,2974332593,6655,Avenida Comendador Franco,6655,Condomínio Mosel Ville,barrier=gate
+300437,4325143000,247,Rua Melão,247,Residencial Boulevard Excellence,barrier=gate
+30052g,3934392630,1081,Rua Augusto Zibarth,1081,Residencial Boulevard,barrier=gate
+300nn1,1985823741,2727,Rua Capitão Leônidas Marques,2727,,barrier=gate
+30188r,4326731133,301,Rua Júlio Maito Sobrinho,301,,access=private; barrier=gate
+301cr0,4326715702,1507,Rua Capitão Leonidas Marques,1507,,barrier=gate
+301cs7,4731206400,1539,Rua Capitão Leonidas Marques,1539,Sacolão das Famílias,shop=greengrocer; addr:postcode=81530-310
+301d8s,4326715720,1800,Rua Capitão Leonidas Marques,1800,,access=private; barrier=gate
+301dk7,4326715707,1746,Rua Capitão Leonidas Marques,1746,,access=private; barrier=gate
+301jvw,4327152429,659,Rua Augusto Steembock,659,,barrier=gate
+301jxu,4327152414,601,Rua Augusto Steembock,601,,barrier=gate
+301jyc,4327152422,647,Rua Augusto Steembock,647,,barrier=gate
+301m1m,4327142886,544,Rua Augusto Steembock,544,,barrier=gate
+301m3e,4327152407,565,Rua Augusto Steembock,565,,barrier=gate
+301m83,4327152419,587,Rua Augusto Steembock,587,,barrier=gate
+301qrb,4330766782,76,Rua Abóbora,76,,barrier=gate
+301w2c,1888051049,91,Rua Abóbora,91,,barrier=gate
+3025b5,3846616273,51,Rua Cabo Cornélio de Souza Martins,51,Centro Municipal de Educação Infantil Ana Proveller,phone=+55 41 3364-1269; amenity=kindergarten; addr:suburb=Uberaba; addr:postcode=81590-400
+3026cp,3748393003,1160,Rua Eunice Bettini Bartoszeck,1160,Cicles Farina,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+302cy5,3748422754,572,Rua Deputado Tenório Cavalcanti,572,,shop=bicycle; addr:country=BR; service:bicycle:diy=no; service:bicycle:pump=yes; service:bicycle:rental=no; service:bicycle:repair=yes; service:bicycle:retail=no; service:bicycle:cleaning=yes; service:bicycle:chain_tool=yes; service:bicycle:second_hand=yes
+302jx2,4332193884,26,Rua Gustavo Barrozo Gonçalves,26,Escola Municipal Rachel Mader Gonçalves,amenity=school
+3040kk,4325540971,30,Rua dos Contabilistas,30,,access=private; barrier=gate
+3048vu,4326745122,940,Rua Capitão Leônidas Marques,940,Farmácia Pacheco,amenity=pharmacy
+304egq,4326736473,120,Rua Araçás,120,Residencial Araçás,barrier=gate
+3050g8,5272289413,1159,Rua Capitão Leônida Marques,1159,RIPAS - Revenda de madeira,addr:suburb=uberaba
+30527n,5272289414,1645,Cel. Alfredo Ferreira da Costa,1645,Splendore Residence,addr:suburb=uberaba
+305rkm,2412783689,712,Rua Filipinas,712,Pastelaria Ito,amenity=fast_food; cuisine=empanada; addr:postcode=82960-180
+3061pj,4254184531,761,Rua Doutor Petrônio Romero de Souza,761,,barrier=gate
+3061q8,4254184521,851,Rua Doutor Petrônio Romero de Souza,851,,barrier=gate
+30629q,4254184545,681,Rua Doutor Petrônio Romero de Souza,681,,barrier=gate
+3062k0,4254184544,611,Rua Doutor Petrônio Romero de Souza,611,,barrier=gate
+307249,2412811396,423,Rua Engenheiro Benedito Mário da Silva,423,Auto Elétrica e Mecânica Bennetton,shop=car_repair
+3072vn,2412783238,555,Rua Engenheiro Benedito Mário da Silva,555,Centro Municipal de Urgências Médicas Cajuru,amenity=hospital; operator=Prefeitura Municipal de Curitiba; addr:suburb=Cajuru
+30h6jz,2733794669,2966,Rua Miguel Caluf,2966,Pesca Tropical,"shop=fishing; website=http://www.pescatropical.com.br; addr:country=BR; addr:postcode=82940-110; opening_hours=Mo-Fr 08:00-18:00; Sa 09:00-13:00; Su,PH off"
+30jgch,4269657195,1230,Rua Engenheiro Costa Barros,1230,,barrier=gate
+30m5z3,4269668873,1576,Rua Niterói,1576,,barrier=gate
+3202et,4267918196,2450,Avenida Prefeito Maurício Fruet,2450,,barrier=gate
+321bg1,4637806246,1571,Rua Professor Nivaldo Braga,1571,,entrance=yes; addr:suburb=Capão da Imbuia; addr:postcode=82900-090
+324vb0,3473292532,135,Avenida Coronel Augusto de Almeida Garret,135,Colégio Estadual Paulo Leminski,amenity=school
+3262m1,5462548425,4518,Avenida Victor Ferreira do Amaral,4518,Mamute Off-Road,shop=car_parts; phone=05530441525; website=http://www.mamuteoffroad.com.br; operator=Vinicius Cechinato; addr:postcode=82810-350; opening_hours=Mo-Fr 08:00-18:00
+3266rw,2398894436,272,Rua Brasílio de Lara,272,Loja de Conveniência,shop=convenience; opening_hours=24/7
+32jvuu,4312512287,422,Rua Ângelo Bressegnello,422,,barrier=gate
+32kue7,4375769094,1070,Rua Marco Polo,1070,,shop=car_repair; email=karlwyrwa@outlook.com; phone=41 96501012; internet_access=wlan
+32n6g5,4312512281,699,Avenida da Integração,699,Condomínio Porto Feliz,barrier=gate
+32pbz4,2733763457,271,Rua Professora Camem Lima de Almeida,271,snookshop,shop=fishing; website=http://www.snookshop.com.br; addr:country=BR; addr:postcode=81550-310; opening_hours=mo-fr 08:00-18:00; sa 09:00-13:000
+32phds,4312502193,17,Rua Rio Iriri,17,,barrier=gate
+32q1vw,2676990279,375,Rua Albino Kaminski,375,ETIST Soluções Tecnológicas,phone=55 41 3521-6046; office=it; website=http://www.ETIST.com.br; addr:postcode=82820310; opening_hours=24/7; payment:coins=yes; payment:bitcoin=yes; payment:litecoin=yes
+32q1vz,3486074840,375,Rua Albino Kaminski,375,Electro VIBE - Festas & Eventos,phone=+55 41 35216046; office=company; name:en=Electro VIBE - Parties & Events; smoking=no; website=http://www.electrovibe.com.br; wheelchair=yes; addr:suburb=Bairro Alto; addr:postcode=82820310; opening_hours=10:00-17:00; payment:bitcoin=yes
+32r27y,3846622363,355,Rua Rio Iriri,355,"Arauaria, E M-EF",phone=+55 41 33673132; amenity=school; addr:suburb=Bairro Alto; addr:postcode=82840310
+32r28t,3846622364,1164,Rua Sebastião Alves Ferreira,1164,"Algacyr M Maeder, C E Prof-EF M",phone=+55 41 32380675; amenity=school; addr:suburb=Bairro Alto; addr:postcode=82840160
+3809ne,3846622359,51,Rua José Mazepa,51,"Jaguariaiva, E M-EF",phone=+55 41 32560612; amenity=school; addr:suburb=Bacacheri; addr:postcode=82600570
+380rxj,3617383127,514,Rua Alberico Flores Bueno,514,Caixa Econômica Federal - Ag Bairro Alto,amenity=bank
+3819ry,3846622361,180,Rua São Sebastião Bunik,180,"Cerro Azul, E M-EI EF",phone=+55 41 32566384; amenity=school; addr:suburb=Tingui; addr:postcode=82600180
+381ztk,5706763906,526,Rua Hilário Moro,526,Maha Surya - Yoga & Terapia,"email=contato@mahasurya.com.br; phone=+55 41 99149-4032; website=https://www.mahasurya.com.br/; addr:suburb=Tingui; description=Saúde, Equilíbrio e Consciência em práticas sob medida para você ou sua empresa. Empresa especializada em aulas particulares de Yoga, Ginástica Laboral em Empresas, e Massoterapia Indiana; addr:postcode=82600-030"
+382bty,3221806817,541,Rua Rio Pelotas,541,Alto Gás,phone=++55 41 3238-2032; website=http://www.altogas.com.br; addr:suburb=Bairro Alto
+382cgy,4315552815,595,Rua Rio Araguari,595,,barrier=gate
+382cve,4315552812,555,Rua Rio Araguari,555,,barrier=gate
+382f44,4315552816,635,Rua Rio Araguari,635,,barrier=gate
+3834cp,3846622362,648,Rua Rio Japurá,648,"Erasmo Pilotto, E M Prof-EF",phone=+55 41 32569133; amenity=school; addr:suburb=Bairo Alto; addr:postcode=82840220
+384dqd,2013642607,196,Rua Livio Peterle,196,Supermercado DuLeo,shop=supermarket
+384mhq,4314526127,100,Rua Arnaldo Francisco Scremin,100,Condomínio Vivare,barrier=gate
+3853q1,4872918321,496,Rua João Fonseca Mercer,496,Saudade,shop=jewelry
+3853q9,4704682589,496,Rua João Fonseca Mercer,496,Gi,shop=florist
+385cm3,4314516321,396,Rua Comendador Zake Sabbag,396,,barrier=gate
+3882ec,4314187374,65,Rua Rio Amazonas,65,Condomínio Vista da Serra,barrier=gate
+38hhfv,4314698018,550,Estrada das Olarias,550,,barrier=gate
+38hqze,4315598030,10,Rua João Maria Cordova Passos,10,,barrier=gate

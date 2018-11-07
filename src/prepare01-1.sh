@@ -4,6 +4,10 @@
 
 echo ' -- ATENÇÃO: edite, leia e delete essa linha --'
 
+#sudo rm -r /tmp/reports /tmp/stable
+#sudo -u postgres mkdir /tmp/reports
+#sudo -u postgres mkdir /tmp/stable
+
 # ... after install postgresql v10+, postgis v2+, etc. install osm2pgsql
 # ... afer DROP DATABASE osm_stable_br
 
