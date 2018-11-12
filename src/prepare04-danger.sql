@@ -1,22 +1,37 @@
-
 ALTER TABLE planet_osm_rels alter column members
   type jsonb USING  jsonb_object(members)
 ; -- fazer o com update até estar seguro. Depois trocar por stable.osmmembers_pack(jsonb_object(members));
 UPDATE planet_osm_rels
 SET members=COALESCE(stable.members_pack(id), members);
 
--- demora 15 min:
-ALTER TABLE planet_osm_line alter column tags type jsonb USING stable.osm_to_jsonb(tags);
+-- demora 15 min cada:
+ALTER TABLE planet_osm_line alter column tags type jsonb
+      USING stable.osm_to_jsonb(tags,true);
+ALTER TABLE planet_osm_roads alter column tags type jsonb
+      USING stable.osm_to_jsonb(tags,true);
 ALTER TABLE planet_osm_ways alter column tags type jsonb
-      USING jsonb_strip_nulls_v2(stable.osm_to_jsonb(tags)); -- ~10 min
+      USING stable.osm_to_jsonb(tags,true); -- ~10 min
 
 -- mais rapidos:
-ALTER TABLE planet_osm_polygon alter column tags type jsonb USING stable.osm_to_jsonb(tags);
-ALTER TABLE planet_osm_rels alter column tags type jsonb USING stable.osm_to_jsonb(tags);
+ALTER TABLE planet_osm_polygon alter column tags type jsonb
+      USING stable.osm_to_jsonb(tags,true);
+ALTER TABLE planet_osm_rels alter column tags type jsonb
+      USING stable.osm_to_jsonb(tags,true);
 
 -- 15 min:
 ALTER TABLE planet_osm_point alter column tags type jsonb USING stable.osm_to_jsonb(tags,true);
 
+-- Opcional. Lines e Roads são dupliacadas mesmo com --multi-geometry
+ALTER TABLE planet_osm_line ADD COLUMN osm_id2 int;
+UPDATE planet_osm_line
+ SET  osm_id2 = sub_id
+ FROM (
+   SELECT osm_id, way, row_number() OVER (PARTITION BY osm_id) as sub_id
+   FROM planet_osm_line
+ ) t WHERE t.osm_id=planet_osm_line.osm_id AND t.way=planet_osm_line.way
+;
+ALTER TABLE planet_osm_line ALTER COLUMN osm_id2 SET NOT NULL;
+ALTER TABLE planet_osm_line ADD CONSTRAINT osmline_uniqids UNIQUE(osm_id,osm_id2);
 
 -- Opcional:
 /* deu pau, anulando 'name:' ... revisar depois quando for usar.

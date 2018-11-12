@@ -43,8 +43,38 @@ CREATE UNIQUE INDEX idx4_brcodes_city ON brcodes_city(uf,abbrev3);
 CREATE UNIQUE INDEX idx3_brcodes_city ON brcodes_city(uf,name);
 CREATE UNIQUE INDEX idx5_brcodes_city ON brcodes_city(cep_range);
 
-DROP FOREIGN TABLE tmpcsv_br_city_codes CASCADE;
+DROP FOREIGN TABLE tmpcsv_ibge_municipios_areas CASCADE;
+CREATE FOREIGN TABLE tmpcsv_ibge_municipios_areas (
+	"qID" int,  -- gid
+	"CD_GCUF" int, -- ibge_id_uf
+	"NM_UF" text, -- nome da UF
+	"NM_UF_SIGLA" text, -- UF
+	"CD_GCMUN" text, -- ibge_id do municipio
+	"NM_MUN_2017" text, -- nome
+	"AR_MUN_2017" text, -- float
+	mult1000 bigint -- reverter float
+) SERVER files OPTIONS (
+	filename '/tmp/AR_BR_RG_UF_MES_MIC_MUN_2017.csv',
+	format 'csv',
+	header 'true'
+);
+CREATE TABLE ibge_lim_munic_2017_area AS
+  SELECT "CD_GCMUN" geocodigo, "NM_UF_SIGLA" uf, "NM_MUN_2017" nome,
+         mult1000::float/1000.0 area
+	FROM tmpcsv_ibge_municipios_areas
+;
 
+CREATE VIEW vw_ibge_lim_munic_2017_calckm2 AS
+  SELECT *, 100.0*abs(a_km2-geom_km2)/a_km2 as diffkm2_perc
+  FROM (
+     SELECT a.geocodigo, g.nome, a.area a_km2, st_area(geom,true)/1000000.0 geom_km2
+     FROM ibge_lim_munic_2017_area a INNER JOIN ibge_lim_munic_2017 g
+       ON a.geocodigo=g.geocodigo AND a.geocodigo not IN ('4300001','4300002')
+  ) t;
+
+--
+
+DROP FOREIGN TABLE tmpcsv_br_city_codes CASCADE;
 --
 -- Prepare brcodes_state:
 DROP FOREIGN TABLE IF EXISTS tmpcsv_br_state_codes CASCADE;
@@ -139,4 +169,11 @@ CREATE VIEW vw_brcodes_city AS
 	       s.region, s.region_name, s.region_fullname
 	FROM brcodes_city c INNER JOIN vw_brcodes_state s
 	  ON c.uf=s.uf
+;
+
+CREATE VIEW vw_brcodes_city_filepath AS
+  SELECT ibge_id, uf, lexlabel, wikidata_id
+	       , uf || '/' || stable.lexname_to_path(lexlabel) folder_name
+				 , name
+  FROM vw_brcodes_city
 ;

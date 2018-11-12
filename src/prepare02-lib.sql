@@ -487,3 +487,72 @@ BEGIN
   RETURN true;
 END;
 $f$ LANGUAGE plpgsql;
+
+
+-----
+-----
+
+-- NORMALIZACOES
+
+
+CREATE FUNCTION stable.normalizeterm(
+	--
+	-- Converts string into standard sequence of lower-case words.
+  -- Para uso nas URNs, NAO USAR para normalização de texto em geral TXT.
+	--
+	text,       		-- 1. input string (many words separed by spaces or punctuation)
+	text DEFAULT ' ', 	-- 2. output separator
+	int DEFAULT 0,	-- 3. max lenght of the result (system limit). 0=full.
+	p_sep2 text DEFAULT ' , ' -- 4. output separator between terms
+) RETURNS text AS $f$
+  SELECT  substring(
+	LOWER(TRIM( regexp_replace(  -- for review: regex(regex()) for ` , , ` remove
+		trim(regexp_replace($1,E'[\\n\\r \\+/,;:\\(\\)\\{\\}\\[\\]="\\s ]*[\\+/,;:\\(\\)\\{\\}\\[\\]="]+[\\+/,;:\\(\\)\\{\\}\\[\\]="\\s ]*|[\\s ]+[–\\-][\\s ]+',
+				   p_sep2, 'g'),' ,'),   -- s*ps*|s-s
+		E'[\\s ;\\|"]+[\\.\'][\\s ;\\|"]+|[\\s ;\\|"]+',    -- s.s|s
+		$2,
+		'g'
+	), $2 )),
+  1,
+	CASE WHEN $3<=0 OR $3 IS NULL THEN char_length($1) ELSE $3 END
+  );
+$f$ LANGUAGE SQL IMMUTABLE;
+
+
+CREATE FUNCTION stable.normalizeterm2(
+	text,
+	boolean DEFAULT true  -- cut
+) RETURNS text AS $f$
+   SELECT (  stable.normalizeterm(
+    CASE WHEN $2 THEN substring($1 from '^[^\(\)\/;]+' ) ELSE $1 END,
+	  ' ',
+	  255,
+    ' / '
+   ));
+$f$ LANGUAGE SQL IMMUTABLE;
+
+CREATE or replace FUNCTION stable.name2lex(
+	-- usar unaccent(x) e [^\w], antes convertendo D'Xx para Xx  e preservando data-iso com _x_
+  p_name text
+  ,p_normalize boolean DEFAULT true
+  ,p_cut boolean DEFAULT true
+	,p_flag boolean DEFAULT true -- unaccent flag
+) RETURNS text AS $f$
+	 SELECT CASE WHEN p_flag THEN urn ELSE urn END
+	 FROM (
+	   SELECT trim(replace(
+		   regexp_replace(
+			     CASE
+			      WHEN p_normalize AND p_flag THEN stable.normalizeterm2(unaccent($1),p_cut)
+			      WHEN p_normalize THEN stable.normalizeterm2($1,p_cut)
+			      ELSE $1
+			     END,
+			     E' d[aeo] | d[oa]s | com | para |^d[aeo] | / .+| [aeo]s | [aeo] |[\-\' ]',
+			     '.',
+			     'g'
+			   ),
+			   '..',
+		     '.'
+		    ),'.')
+		) t(urn)
+$f$ LANGUAGE SQL IMMUTABLE;
